@@ -71,8 +71,8 @@ h1 {
     margin-bottom: 4rem;
 }
 
-/* Bigger than 550 */
-@media (min-width: 550px) {
+/* Bigger than 725 */
+@media (min-width: 725px) {
     .section {
         padding: 12rem 0 11rem;
     }
