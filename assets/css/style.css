@@ -1,7 +1,14 @@
 /* Shared
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1 {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
 .button {
     border-radius: 100px;
+    flex: auto;
+    max-width: 80%;
 }
 
 /* Sections
