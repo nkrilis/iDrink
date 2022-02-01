@@ -79,7 +79,7 @@ h1 {
     .hero {
         padding-bottom: 12rem;
         text-align: left;
-        height: 165px;
+        height: 365px;
     }
     .phone {
         position: absolute;
@@ -98,39 +98,6 @@ h1 {
     }
     .hero-heading {
         font-size: 2.4rem;
-    }
-}
-
-/* Bigger than 750 */
-@media (min-width: 750px) {
-    .hero {
-        height: 190px;
-    }
-    .hero-heading {
-        font-size: 2.6rem;
-    }
-    .section {
-        padding: 14rem 0 15rem;
-    }
-    .hero {
-        padding: 16rem 0 14rem;
-    }
-    .section-description {
-        max-width: 60%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .phone {
-        top: -14rem;
-        right: 5rem;
-        max-height: 510px;
-    }
-    .phone + .phone {
-        top: -12rem;
-        max-height: 472px;
-    }
-    .categories {
-        padding: 15rem 0 8rem;
     }
 }
 
