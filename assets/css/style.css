@@ -23,6 +23,7 @@
 .phone {
     position: relative;
     margin: 3rem auto -12rem;
+    max-width: 80%;
     border-radius: 80%;
 }
 
