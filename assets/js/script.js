@@ -76,6 +76,13 @@ function displayDrink(data) {
     var urlLink = data.drinks[0].strVideo;
     drinkLink.attr("href", urlLink);
 
+    // Remove the link button if there is no link available
+    if(urlLink != null)
+    {
+        drinkLink.removeAttr("style");
+    }
+    
+
     //drinks: Array(2)
     // 0:
     // dateModified: "2017-09-02 12:36:47"
