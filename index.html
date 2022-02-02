@@ -35,7 +35,7 @@
                         </h4>
                         <input class="input-group mb-3" style="font-size: large;" id="drink-search"></input>
                         <select class="form-select mb-3" style="font-size: large;" id="genres">
-                            <option class="dropD" >No Thanks</option>
+                            <option class="dropD" value="0">No Thanks</option>
                             <option class="dropD" value="37">Western</option>
                             <option class="dropD" value="36">History</option>
                             <option class="dropD" value="16">Animation</option>
@@ -62,13 +62,12 @@
                                 <div class="modal-header">
                                     <span class="close">&times;</span>
                                     <h2>No Drink Found!</h2>
-                                </div>
-                                <div class="modal-body">
                                     <p>Sorry,</p>
                                     <p>There was no drink found try searching for something else.</p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="one-half column phones">
                         <img class="phone" src="assets/images/mainImage.jpg" />
@@ -87,8 +86,8 @@
                         <h6 class="hero-heading" id="instructions" >
                             Mix in a highball glass with ice. Garnish and serve
                         </h6>
-                        <a class="button button-primary" id="drinkLink" href="#">Youtube Link!</a>
-                        <a class="button button-primary" id="randomMovieLink" href="#resultMovie">Go To Random Movie</a>
+                        <a type="button" class="button button-primary" id="drinkLink" href="#" style="display: none; visibility: hidden;">Youtube Link!</a>
+                        <a class="button button-primary" id="randomMovieLink" href="#resultMovie" style="display: none; visibility: hidden;">Go To Random Movie</a>
                     </div>
                     <div class="one-half column phones">
                         <img class="phone" id="drinkPic" src="assets/images/screw.jpeg" />
@@ -105,11 +104,11 @@
                 <div class="row">
                     <div class="one-half column">
                         <h2 class="column">Random Movie: </h2>
-                        <h3 class="section-heading">Matrix Reloaded</h3>
-                        <a class="button button-primary" id="newSearchButton" href="https://www.netflix.com/ca/title/60027695">Movie Link</a>
+                        <h3 class="section-heading" id="movie-title">Matrix Reloaded</h3>
+                        <a class="button button-primary" id="movie-link" href="https://www.netflix.com/ca/title/60027695">Movie Link</a>
                     </div>
                     <div class="one-half column phones">
-                        <img class="phone" src="assets/images/matrix.jpeg"/>
+                        <img class="phone" src="assets/images/matrix.jpeg" id="movie-pic"/>
                     </div>
                 </div>
                 <hr>
@@ -151,3 +150,4 @@
     <script src="./assets/js/script.js"></script>
     </body>
 </html>
+
