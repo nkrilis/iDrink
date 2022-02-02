@@ -6,6 +6,10 @@ var ul = $("#ingredientList");
 var instruction = $("#instructions");
 var drinkPic = $("#drinkPic");
 var drinkLink = $("#drinkLink");
+var movieTitle = $("#movie-title");
+var movieLink = $("#movie-link");
+var moviePic = $("#movie-pic");
+var movieArea = $("#resultMovie");
 
 function fetchDrink(event) {
     console.log(drinkName.val());
@@ -13,17 +17,35 @@ function fetchDrink(event) {
     var apiUrl =
         "https://thecocktaildb.com/api/json/v1/1/search.php?s=" +
         drinkName.val();
-
-    fetch(apiUrl)
+    
+        fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
                 console.log(response);
-                response.json().then(function (data) {
-                    console.log(data);
-                    //data contains object
-                    displayDrink(data);
+                response.json().then(function (data) 
+                {
+                    console.log(data);  
+                    // When the user enters nothing hide the display areas
+                    if(data.drinks === null || drinkName.val() === "")
+                    {
+                        $("#resultDrink").attr("hidden", true);
+                        $("#resultMovie").attr("hidden", true);
+                    }
+                    // When the user enters valid search display the info areas
+                    // and call display function
+                    else
+                    {
+                        $("#resultDrink").attr("hidden", false);
+                        $("#resultMovie").attr("hidden", false);
+                        //data contains object
+                        displayDrink(data);
+                    }
+    
                 });
-            } else {
+            } 
+
+            else 
+            {
                 alert("Error: " + response.statusText);
             }
         })
@@ -39,30 +61,40 @@ function displayDrink(data) {
     nameDrink.text(data.drinks[0].strDrink);
 
     //deleting any previous ingredient list with this while loop
-    while (nameDrink.firstChild) {
-        nameDrink.firstChild.remove();
-    }
+  
     //add the instructions
     instruction.text("");
     instruction.text(data.drinks[0].strInstructions);
 
     //we add the ingredients as elements to html page here
-    while (ul.firstChild) {
-        ul.firstChild.remove();
-    }
-    for (i = 1; i < 8; i++) {
+    // while (ul.firstChild) 
+    // {
+    //     ul.firstChild.remove();
+    // }
+
+    // Remove list elements before populating new list
+    $("#ingredientList").empty();
+
+    for (i = 1; i < 15; i++) 
+    {
         var ingredientNum = "strIngredient" + i;
         console.log(ingredientNum);
 
         //cant get it to get the ingredient from data object!
         var ingredient = data.drinks[0]["strIngredient" + i];
         var ingredientQuantity = data.drinks[0]["strMeasure" + i];
+
+        if(ingredientQuantity === null || ingredientQuantity === "")
+        {
+            ingredientQuantity = "";
+        }
+
         console.log(ingredient);
-        if (!(ingredient == null)) {
+        if (!(ingredient == null || ingredient === "")) {
             ul.append($("<li>").append(ingredientQuantity + ingredient));
         } else {
             //last ingredient reached
-            i = 8;
+            break;
         }
         console.log(ingredient);
     }
@@ -75,6 +107,13 @@ function displayDrink(data) {
     //add the link to button for youtube video
     var urlLink = data.drinks[0].strVideo;
     drinkLink.attr("href", urlLink);
+
+    // Remove the link button if there is no link available
+    if(urlLink != null)
+    {
+        drinkLink.removeAttr("style");
+    }
+    
 
     //drinks: Array(2)
     // 0:
@@ -139,6 +178,7 @@ function fetchMovie(event) {
     //If user leaves on No Thanks wont find a random movie
     //check here if genre == no thanks
 
+
     fetch(
         "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=" +
             genre +
@@ -148,13 +188,13 @@ function fetchMovie(event) {
             headers: {
                 "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
                 "x-rapidapi-key":
-                    "d92410c74amsh2c46b80ad014673p1e0368jsn745f5bd543a0",
+                    "0bd12cf723mshf8adbb7d5152ad0p1ad045jsn4c9157f2f695",
             },
         }
     )
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
+                console.log("-----------------"+response);
                 response.json().then(function (data) {
                     console.log(data);
                     pickMovie(data);
@@ -174,44 +214,36 @@ function pickMovie(data) {
     var randomPick = Math.floor(Math.random() * 8);
     // we grab the random movie via data.results[randomPick].title
     var movieName = data.results[randomPick].title;
-    var movieLink = data.results[randomPick].streamingInfo.netflix.us.link;
+    var movieL = data.results[randomPick].streamingInfo.netflix.us.link;
     var moviePosterURL = data.results[randomPick].posterURLs.original;
+
+    movieLink.attr("href", movieL);
+    movieTitle.text(movieName);
+    moviePic.attr("src", moviePosterURL);
+
     console.log(movieName);
     console.log(movieLink);
     console.log(moviePosterURL);
 
-    //this is the object for a given movie and its possible parameters
-    // results: Array(8)
-    // 0:
-    // age: 13
-    // backdropPath: "/lRCAcwJeh93YHO3ghFBDf0Pj3w3.jpg"
-    // backdropURLs: {300: 'https://image.tmdb.org/t/p/w300/lRCAcwJeh93YHO3ghFBDf0Pj3w3.jpg', 780: 'https://image.tmdb.org/t/p/w780/lRCAcwJeh93YHO3ghFBDf0Pj3w3.jpg', 1280: 'https://image.tmdb.org/t/p/w1280/lRCAcwJeh93YHO3ghFBDf0Pj3w3.jpg', original: 'https://image.tmdb.org/t/p/original/lRCAcwJeh93YHO3ghFBDf0Pj3w3.jpg'}
-    // cast: (5) ['Nirmal Purja', 'Jimmy Chin', 'Reinhold Messner', 'Klára Kolouchová', 'Conrad Anker']
-    // countries: ['US']
-    // genres: (3) [99, 12, 5]
-    // imdbID: "tt14079374"
-    // imdbRating: 79
-    // imdbVoteCount: 19369
-    // originalLanguage: "en"
-    // originalTitle: "14 Peaks: Nothing Is Impossible"
-    // overview: "In 2019, Nepalese mountain climber Nirmal “Nims” Purja set out to do the unthinkable by climbing the world’s fourteen highest summits in less than seven months. (The previous record was eight years). He called the effort “Project Possible 14/7” and saw it as a way to inspire others to strive for greater heights in any pursuit. The film follows his team as they seek to defy naysayers and push the limits of human endurance."
-    // posterPath: "/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg"
-    // posterURLs: {92: 'https://image.tmdb.org/t/p/w92/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', 154: 'https://image.tmdb.org/t/p/w154/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', 185: 'https://image.tmdb.org/t/p/w185/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', 342: 'https://image.tmdb.org/t/p/w342/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', 500: 'https://image.tmdb.org/t/p/w500/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', 780: 'https://image.tmdb.org/t/p/w780/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg', original: 'https://image.tmdb.org/t/p/original/saGMNCD6ayFqmOb9mX2MkkMmW7w.jpg'}
-    // runtime: 101
-    // significants: ['Torquil Jones']
-    // streamingInfo: {netflix: {…}}
-    // tagline: ""
-    // title: "14 Peaks: Nothing Is Impossible"
-    // tmdbID: "890825"
-    // tmdbRating: 76
-    // video: "8QH5hBOoz08"
-    // year: 2021
 }
 
 searchButton.on("click", function (event) {
-    $("#resultDrink").attr("hidden", false);
-    $("#resultMovie").attr("hidden", false);
-    fetchDrink(event);
+    
+    if($("#genres option:selected").val() === "0")
+    {
+        console.log($("#genres option:selected").val());
+        $("#resultMovie").css("display", "none");
+        fetchDrink(event);
+        
+    }
+    else
+    {
+        $("#resultMovie").css("display", "block");
+        fetchDrink(event);
+        fetchMovie(event);
+    }
+
+    
     //add fetchMovie but exceeded api calls so blocked me out
 });
 //need to call two functions here fetch drink and fetch movie
