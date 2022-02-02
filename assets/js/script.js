@@ -218,10 +218,10 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("searchButton");
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
+//add modal to search butt
 btn.onclick = function () {
 	//if fetch drink is empty show modal
-	if (fetchDrink() == "") {
+	if (document.getElementById("drink-search").value.length == 0) {
 		modal.style.display = "block";
 	}
 };
