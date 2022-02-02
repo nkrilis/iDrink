@@ -20,7 +20,8 @@ function fetchDrink(event) {
     
         fetch(apiUrl)
         .then(function (response) {
-            if (response.ok) {
+            if (response.ok) 
+            {
                 console.log(response);
                 response.json().then(function (data) 
                 {
@@ -107,6 +108,7 @@ function displayDrink(data) {
     //add the link to button for youtube video
     var urlLink = data.drinks[0].strVideo;
     drinkLink.attr("href", urlLink);
+
 
     // Remove the link button if there is no link available
     if(urlLink != null)
@@ -227,18 +229,22 @@ function pickMovie(data) {
 
 }
 
-searchButton.on("click", function (event) {
-    
+searchButton.on("click", function (event) 
+{
+    // What to do when no movie genre is selected
     if($("#genres option:selected").val() === "0")
     {
         console.log($("#genres option:selected").val());
         $("#resultMovie").css("display", "none");
+        $("#randomMovieLink").attr("style", "display: none; visibility: hidden;");
         fetchDrink(event);
         
     }
+    // What to do if a movie genre is selected
     else
     {
         $("#resultMovie").css("display", "block");
+        $("#randomMovieLink").removeAttr("style");
         fetchDrink(event);
         fetchMovie(event);
     }
