@@ -26,6 +26,11 @@ function fetchDrink(event) {
 					if (data.drinks === null || drinkName.val() === "") {
 						$("#resultDrink").attr("hidden", true);
 						$("#resultMovie").attr("hidden", true);
+
+						btn.onclick = function () {
+							//if fetch drink is empty show modal
+							modal.style.display = "block";
+						};
 					}
 					// When the user enters valid search display the info areas
 					// and call display function
