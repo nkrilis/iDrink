@@ -1,139 +1,160 @@
 /* Shared
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
-    margin-left: 10%;
-    margin-top: 5%;
+	margin-left: 10%;
+	margin-top: 5%;
 }
 
 .button {
-    border-radius: 100px;
-    flex: auto;
-    max-width: 80%;
+	border-radius: 100px;
+	flex: auto;
+	max-width: 80%;
 }
 
 /* Sections
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .section {
-    padding: 8rem 0 7rem;
-    text-align: center;
+	padding: 8rem 0 7rem;
+	text-align: center;
 }
 .section-heading,
 .section-description {
-    margin-bottom: 1.2rem;
+	margin-bottom: 1.2rem;
 }
 
 /* Hero
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .phones {
-    position: relative;
+	position: relative;
 }
 .phone {
-    position: relative;
-    margin: 3rem auto -12rem;
-    max-width: 80%;
-    border-radius: 80%;
+	position: relative;
+	margin: 3rem auto -12rem;
+	max-width: 80%;
+	border-radius: 80%;
 }
 
 #resultDrink {
-    margin-bottom: 0%;
-    padding-bottom: 0%;
-    padding-top: 5%;
+	margin-bottom: 0%;
+	padding-bottom: 0%;
+	padding-top: 5%;
 }
 
 ul,
 li {
-    font-size: 105%;
+	font-size: 105%;
 }
 
 #resultMovie {
-    margin-top: 0%;
-    padding-top: 5%;
+	margin-top: 0%;
+	padding-top: 5%;
 }
 
 /* Values
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .values {
-    background-image: url("../images/values-bg.jpeg");
-    background-size: cover;
-    color: #fff;
-    padding-bottom: 5rem;
+	background-image: url("../images/values-bg.jpeg");
+	background-size: cover;
+	color: #fff;
+	padding-bottom: 5rem;
 }
 .value-multiplier {
-    margin-bottom: 0.5rem;
-    color: #11dfc7;
+	margin-bottom: 0.5rem;
+	color: #11dfc7;
 }
 .value-heading {
-    margin-bottom: 0.3rem;
+	margin-bottom: 0.3rem;
 }
 .value-description {
-    opacity: 0.8;
-    font-weight: 300;
+	opacity: 0.8;
+	font-weight: 300;
 }
 
 /* Help
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .get-help {
-    border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 /* Categories
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .categories {
-    background-image: url("../images/values-bg.jpeg");
-    background-size: cover;
-    color: #fff;
+	background-image: url("../images/values-bg.jpeg");
+	background-size: cover;
+	color: #fff;
 }
 .categories .section-description {
-    margin-bottom: 4rem;
+	margin-bottom: 4rem;
 }
 
 /* Bigger than 725 */
 @media (min-width: 725px) {
-    .section {
-        padding: 12rem 0 11rem;
-    }
-    .hero {
-        padding-bottom: 12rem;
-        text-align: left;
-        height: 365px;
-    }
-    .phone {
-        position: absolute;
-        top: -7rem;
-        right: 3rem;
-        max-height: 362px;
-        z-index: 3;
-    }
-    .phone + .phone {
-        top: -6rem;
-        display: block;
-        max-width: 73.8%;
-        right: 0;
-        z-index: 2;
-        max-height: 338px;
-    }
-    .hero-heading {
-        font-size: 2.4rem;
-    }
+	.section {
+		padding: 12rem 0 11rem;
+	}
+	.hero {
+		padding-bottom: 12rem;
+		text-align: left;
+		height: 365px;
+	}
+	.phone {
+		position: absolute;
+		top: -7rem;
+		right: 3rem;
+		max-height: 362px;
+		z-index: 3;
+	}
+	.phone + .phone {
+		top: -6rem;
+		display: block;
+		max-width: 73.8%;
+		right: 0;
+		z-index: 2;
+		max-height: 338px;
+	}
+	.hero-heading {
+		font-size: 2.4rem;
+	}
 }
 
 /* Bigger than 1000 */
 @media (min-width: 1000px) {
-    .section {
-        padding: 20rem 0 19rem;
-    }
-    .hero {
-        padding: 22rem 0;
-    }
-    .hero-heading {
-        font-size: 3rem;
-    }
-    .phone {
-        top: -16rem;
-        max-height: 615px;
-    }
-    .phone + .phone {
-        top: -14rem;
-        max-height: 570px;
-    }
+	.section {
+		padding: 20rem 0 19rem;
+	}
+	.hero {
+		padding: 22rem 0;
+	}
+	.hero-heading {
+		font-size: 3rem;
+	}
+	.phone {
+		top: -16rem;
+		max-height: 615px;
+	}
+	.phone + .phone {
+		top: -14rem;
+		max-height: 570px;
+	}
 }
+#myModal {
+	display: none;
+}
+/* Modal Header */
+.modal-header {
+	padding: 2px 16px;
+	background-color: rgb(34, 177, 141);
+	color: white;
+}
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Add Animation */
