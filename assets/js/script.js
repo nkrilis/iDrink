@@ -27,16 +27,17 @@ function fetchDrink(event) {
 						$("#resultDrink").attr("hidden", true);
 						$("#resultMovie").attr("hidden", true);
 
-						btn.onclick = function () {
-							//if fetch drink is empty show modal
-							modal.style.display = "block";
-						};
+						//if fetch drink is empty show modal
+						modal.style.display = "block";
+						
 					}
 					// When the user enters valid search display the info areas
 					// and call display function
 					else {
 						$("#resultDrink").attr("hidden", false);
 						$("#resultMovie").attr("hidden", false);
+
+						modal.style.display = "none";
 						//data contains object
 						displayDrink(data);
 					}
@@ -62,11 +63,7 @@ function displayDrink(data) {
 	instruction.text("");
 	instruction.text(data.drinks[0].strInstructions);
 
-	//we add the ingredients as elements to html page here
-	// while (ul.firstChild)
-	// {
-	//     ul.firstChild.remove();
-	// }
+	// We add the ingredients as elements to html page here
 
 	// Remove list elements before populating new list
 	$("#ingredientList").empty();
@@ -106,60 +103,6 @@ function displayDrink(data) {
 	if (urlLink != null) {
 		drinkLink.removeAttr("style");
 	}
-
-	//drinks: Array(2)
-	// 0:
-	// dateModified: "2017-09-02 12:36:47"
-	// idDrink: "12162"
-	// strAlcoholic: "Alcoholic"
-	// strCategory: "Ordinary Drink"
-	// strCreativeCommonsConfirmed: "No"
-	// strDrink: "Screwdriver"
-	// strDrinkAlternate: null
-	// strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/8xnyke1504352207.jpg"
-	// strGlass: "Highball glass"
-	// strIBA: "Unforgettables"
-	// strImageAttribution: null
-	// strImageSource: null
-	// strIngredient1: "Vodka"
-	// strIngredient2: "Orange juice"
-	// strIngredient3: null
-	// strIngredient4: null
-	// strIngredient5: null
-	// strIngredient6: null
-	// strIngredient7: null
-	// strIngredient8: null
-	// strIngredient9: null
-	// strIngredient10: null
-	// strIngredient11: null
-	// strIngredient12: null
-	// strIngredient13: null
-	// strIngredient14: null
-	// strIngredient15: null
-	// strInstructions: "Mix in a highball glass with ice. Garnish and serve."
-	// strInstructionsDE: "In einem Highball-Glas mit Eis mischen. Garnieren und servieren."
-	// strInstructionsES: null
-	// strInstructionsFR: null
-	// strInstructionsIT: "Mescolare in un bicchiere highball con ghiaccio. Guarnire e servire."
-	// strInstructionsZH-HANS: null
-	// strInstructionsZH-HANT: null
-	// strMeasure1: "2 oz "
-	// strMeasure2: null
-	// strMeasure3: null
-	// strMeasure4: null
-	// strMeasure5: null
-	// strMeasure6: null
-	// strMeasure7: null
-	// strMeasure8: null
-	// strMeasure9: null
-	// strMeasure10: null
-	// strMeasure11: null
-	// strMeasure12: null
-	// strMeasure13: null
-	// strMeasure14: null
-	// strMeasure15: null
-	// strTags: "IBA"
-	// strVideo: "https://www.youtube.com/watch?v=ce_YOgaEo3Q"
 }
 
 function fetchMovie(event) {
@@ -241,12 +184,8 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("searchButton");
 var span = document.getElementsByClassName("close")[0];
 //stop modal from popping up on page load
-btn.onclick = function () {
-	//if fetch drink is empty show modal
-	if (document.getElementById("drink-search").value.length == 0) {
-		modal.style.display = "block";
-	}
-};
+// btn.onclick = function () {
+
 // When the user clicks on <span> (x), close the modal
 
 span.onclick = function () {
