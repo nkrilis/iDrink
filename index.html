@@ -56,13 +56,15 @@
                             <option class="dropD" value="10752">War</option>
                         </select>
                         <a class="button btn-dark w-100" id="searchButton" href="#resultDrink">Search</a>
-                        <div class="myModal">
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
                             <div class="modal-content">
-                                <button class="close">&times; </button>
-                                <p id="modal-text" >
-                                    <h3>No item found</h3>
-                                    <p>Please try again</p>                                   
-                                </p>
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+                                    <h2 data-toggle="modal" >No Drink Found!</h2>
+                                    <p data-toggle="modal">Sorry,</p>
+                                    <p data-toggle="modal" >There was no drink found try searching for something else.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
