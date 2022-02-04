@@ -17,16 +17,20 @@ The APIs we used for this application is from TheCocktailDB and Streaming availa
 * Jquery
 * Skeleton CSS for framework
 
+### APIs used
+* TheCocktailDB: www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+* Streaming Availability: https://streaming-availability.p.rapidapi.com/search/basic
+
 #### Screenshots
 ![](images/sc1.png)
 ![](images/sc2.png)
 ![](images/sc3.png)
 
 ##### Credits
-.http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-.https://streaming-availability.p.rapidapi.com/search/basic
-.https://code.jquery.com/ui/1.12.0/jquery-ui.min.js
-.https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css
+* The CoktailDB API http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+* Sreaming availability API https://streaming-availability.p.rapidapi.com/search/basic
+* jQuery https://code.jquery.com/ui/1.12.0/jquery-ui.min.js
+* Skeleton CSS Framework https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css
  
  #####
  Here is the URL for the live application: 
