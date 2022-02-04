@@ -32,8 +32,7 @@ The APIs we used for this application is from TheCocktailDB and Streaming availa
 * jQuery https://code.jquery.com/ui/1.12.0/jquery-ui.min.js
 * Skeleton CSS Framework https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css
  
- #####
- Here is the URL for the live application: 
+ ### Here is the URL for the live application: [iDrink](https://nkrilis.github.io/iDrink/)
 
 
 
